@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "admins",
+  "info": {
+    "singularName": "admin",
+    "pluralName": "admins",
+    "displayName": "admin"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "vision": {
+      "type": "text"
+    },
+    "date": {
+      "type": "string"
+    },
+    "place": {
+      "type": "string"
+    }
+  }
+}
