@@ -402,37 +402,6 @@ export interface ApiAdminSettingAdminSetting
   };
 }
 
-export interface ApiAdminAdmin extends Struct.CollectionTypeSchema {
-  collectionName: 'admins';
-  info: {
-    displayName: 'admin';
-    pluralName: 'admins';
-    singularName: 'admin';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    date: Schema.Attribute.String;
-    email: Schema.Attribute.String;
-    instagram: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::admin.admin'> &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    place: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    size: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    vision: Schema.Attribute.Text;
-  };
-}
-
 export interface ApiIllustrationIllustration
   extends Struct.CollectionTypeSchema {
   collectionName: 'illustrations';
@@ -491,6 +460,40 @@ export interface ApiPortfolioPortfolio extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiUsersFormUsersForm extends Struct.CollectionTypeSchema {
+  collectionName: 'users_forms';
+  info: {
+    displayName: 'users-form';
+    pluralName: 'users-forms';
+    singularName: 'users-form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.String;
+    email: Schema.Attribute.String;
+    instagram: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::users-form.users-form'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    place: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    size: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    vision: Schema.Attribute.String;
   };
 }
 
@@ -1004,9 +1007,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::admin-setting.admin-setting': ApiAdminSettingAdminSetting;
-      'api::admin.admin': ApiAdminAdmin;
       'api::illustration.illustration': ApiIllustrationIllustration;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
+      'api::users-form.users-form': ApiUsersFormUsersForm;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

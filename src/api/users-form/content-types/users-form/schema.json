@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "admins",
+  "collectionName": "users_forms",
   "info": {
-    "singularName": "admin",
-    "pluralName": "admins",
-    "displayName": "admin"
+    "singularName": "users-form",
+    "pluralName": "users-forms",
+    "displayName": "users-form"
   },
   "options": {
     "draftAndPublish": true
@@ -24,7 +24,7 @@
       "type": "string"
     },
     "vision": {
-      "type": "text"
+      "type": "string"
     },
     "date": {
       "type": "string"
