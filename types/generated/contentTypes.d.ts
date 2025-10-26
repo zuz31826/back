@@ -417,15 +417,48 @@ export interface ApiIllustrationIllustration
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::illustration.illustration'
     > &
       Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPaintingPainting extends Struct.CollectionTypeSchema {
+  collectionName: 'paintings';
+  info: {
+    displayName: 'painting';
+    pluralName: 'paintings';
+    singularName: 'painting';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::painting.painting'
+    > &
+      Schema.Attribute.Private;
+    materials: Schema.Attribute.Text;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    size: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1008,6 +1041,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::admin-setting.admin-setting': ApiAdminSettingAdminSetting;
       'api::illustration.illustration': ApiIllustrationIllustration;
+      'api::painting.painting': ApiPaintingPainting;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
       'api::users-form.users-form': ApiUsersFormUsersForm;
       'plugin::content-releases.release': PluginContentReleasesRelease;

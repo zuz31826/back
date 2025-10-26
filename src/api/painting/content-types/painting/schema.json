@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "illustrations",
+  "collectionName": "paintings",
   "info": {
-    "singularName": "illustration",
-    "pluralName": "illustrations",
-    "displayName": "illustration"
+    "singularName": "painting",
+    "pluralName": "paintings",
+    "displayName": "painting"
   },
   "options": {
     "draftAndPublish": true
@@ -13,13 +13,22 @@
   "attributes": {
     "image": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
       ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "materials": {
+      "type": "text"
     }
   }
 }
