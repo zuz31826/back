@@ -496,6 +496,37 @@ export interface ApiPortfolioPortfolio extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSketchbookSketchbook extends Struct.CollectionTypeSchema {
+  collectionName: 'sketchbooks';
+  info: {
+    displayName: 'sketchbook';
+    pluralName: 'sketchbooks';
+    singularName: 'sketchbook';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sketchbook.sketchbook'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiUsersFormUsersForm extends Struct.CollectionTypeSchema {
   collectionName: 'users_forms';
   info: {
@@ -1043,6 +1074,7 @@ declare module '@strapi/strapi' {
       'api::illustration.illustration': ApiIllustrationIllustration;
       'api::painting.painting': ApiPaintingPainting;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
+      'api::sketchbook.sketchbook': ApiSketchbookSketchbook;
       'api::users-form.users-form': ApiUsersFormUsersForm;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
