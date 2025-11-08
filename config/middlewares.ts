@@ -7,10 +7,9 @@ export default [
 		config: {
 			origin: [
 				"http://localhost:5173",
-				"http://10.42.169.204:5173",
-				"http://10.179.105.240:5174",
-				"http://10.179.105.240:5173",
 				"https://front-ten-opal-91.vercel.app",
+				"https://www.wruszka.com",
+				"https://wruszka.com",
 			],
 			methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
 			headers: ["Content-Type", "Authorization", "Origin", "Accept"],
